@@ -1,3 +1,3 @@
 # GFG
-##Matrix Operator
-##Tic Tac Toe
+1. Matrix Operator
+2. Tic Tac Toe
