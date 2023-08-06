@@ -12,18 +12,17 @@ void print(char matrix[3][3]) {
 
 //To check for win status
 int checkWin(char matrix[3][3], char playerName) {
-    // Check rows, columns, and diagonals
     for (int i = 0; i < 3; i++) {
         if ((matrix[i][0] == playerName && matrix[i][1] == playerName && matrix[i][2] == playerName) ||
             (matrix[0][i] == playerName && matrix[1][i] == playerName && matrix[2][i] == playerName)) {
-            return 1; // Player has won
+            return 1;
         }
     }
     if ((matrix[0][0] == playerName && matrix[1][1] == playerName && matrix[2][2] == playerName) ||
         (matrix[0][2] == playerName && matrix[1][1] == playerName && matrix[2][0] == playerName)) {
-        return 1; // Player has won
+        return 1;
     }
-    return 0; // No winner yet
+    return 0;
 }
 
 
