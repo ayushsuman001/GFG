@@ -23,11 +23,9 @@ void addCandidates(struct Candidate candidates[MAX_CANDIDATES], int *numCandidat
         printf("Maximum candidates limit reached!\n");
         return;
     }
-
     printf("Enter the name of candidate %d: ", *numCandidates + 1);
     scanf("%s", candidates[*numCandidates].name);
     candidates[*numCandidates].votes = 0;
-
     (*numCandidates)++;
     printf("Candidate added successfully!\n");
 }
@@ -37,29 +35,28 @@ void addVoters(struct Voter voters[MAX_VOTERS], int *numVoters){
         printf("Maximium number of voters reached\n");
         return;
     }
-
     printf("Enter the name of voter %d: ", *numVoters + 1);
     scanf("%s", voters[*numVoters].name);
-
     printf("Enter the address of voter %d: ", *numVoters + 1);
     scanf(" %[^\n]", voters[*numVoters].address);
-
     printf("Enter the voter ID of voter %d: ", *numVoters + 1);
     scanf("%d", &voters[*numVoters].voterID);
-
     voters[*numVoters].voted = 0;
-
     (*numVoters)++;
     printf("Voter added successfully!\n");
+}
+
+void check(struct Voter voters[MAX_VOTERS], int *numVoters){
+    for (int i=0;i<*numVoters;i++){
+        printf("%d",voters[i].voterID);
+    }
 }
 
 void vote(struct Candidate candidates[MAX_CANDIDATES], int numCandidates, struct Voter voters[MAX_VOTERS], int numVoters){
     char voterName[MAX_NAME_LENGTH];
     int found = 0;
-
     printf("Enter your name to cast your vote: ");
     scanf("%s", voterName);
-
     for (int i = 0; i < numVoters; i++) {
         if (strcmp(voters[i].name, voterName) == 0) {
             if (voters[i].voted == 0) {
@@ -68,11 +65,9 @@ void vote(struct Candidate candidates[MAX_CANDIDATES], int numCandidates, struct
                     printf("%d. %s\n", j + 1, candidates[j].name);
                 }
                 printf("%d. None of the Above\n", numCandidates + 1);
-
                 int choice;
                 printf("Enter the number corresponding to the candidate you want to vote for: ");
                 scanf("%d", &choice);
-
                 if (choice >= 1 && choice <= numCandidates) {
                     candidates[choice - 1].votes++;
                     printf("Vote casted successfully!\n");
@@ -99,7 +94,6 @@ void vote(struct Candidate candidates[MAX_CANDIDATES], int numCandidates, struct
 void displayResults(struct Candidate candidates[MAX_CANDIDATES], int numCandidates){
     int maxVotes = -1;
     int tie = 0;
-
     printf("Candidates with their votes:\n");
     for (int i = 0; i < numCandidates; i++) {
         printf("%s - %d votes\n", candidates[i].name, candidates[i].votes);
@@ -110,7 +104,6 @@ void displayResults(struct Candidate candidates[MAX_CANDIDATES], int numCandidat
             tie = 1;
         }
     }
-
     if (!tie) {
         printf("The winner is:\n");
         for (int i = 0; i < numCandidates; i++) {
@@ -133,14 +126,11 @@ void displayResults(struct Candidate candidates[MAX_CANDIDATES], int numCandidat
 int main() {
     struct Candidate candidates[MAX_CANDIDATES];
     int numCandidates = 0;
-
     struct Voter voters[MAX_VOTERS];
     int numVoters = 0,ch;
-
     printf("\n-------------------------------------\n");
     printf("\nVoting System\n");
     printf("\n-------------------------------------\n");
-
     do {
         printf("\nMain Menu:\n\n");
         printf("1. Add candidates\n");
@@ -150,13 +140,13 @@ int main() {
         printf("5. Exit\n\n");
         printf("Enter your choice: ");
         scanf("%d", &ch);
-
         switch (ch) {
             case 1:
                 addCandidates(candidates, &numCandidates);
                 break;
             case 2:
                 addVoters(voters, &numVoters);
+                check(voters, &numVoters);
                 break;
             case 3:
                 vote(candidates, numCandidates, voters, numVoters);
@@ -173,7 +163,6 @@ int main() {
         }
 
     } while (ch != 5);
-
     return 0;
 }
 
