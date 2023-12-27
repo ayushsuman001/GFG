@@ -4,19 +4,19 @@
 
 This repository contains four distinct projects implemented in C. Each project focuses on a specific domain:
 
-1. **Grocery Billing System**
+1. Grocery Billing System
    - Description: A simple command-line grocery billing system that calculates the total amount for items purchased.
    - File: `grocery_billing_system.c`
 
-2. **Matrix Operations**
+2. Matrix Operations
    - Description: A program that performs various operations on matrices, including addition, subtraction, multiplication, division, transpose, and inverse.
    - File: `matrix_operations.c`
 
-3. **Tic-Tac-Toe Game**
+3. Tic-Tac-Toe Game
    - Description: Implementation of a classic Tic-Tac-Toe game where two players take turns marking spaces in a 3x3 grid.
    - File: `tic_tac_toe.c`
 
-4. **Voting System**
+4. Voting System
    - Description: A simple voting system allowing the addition of candidates and voters, casting votes, and displaying election results.
    - File: `voting_system.c`
 
