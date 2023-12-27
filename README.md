@@ -4,7 +4,7 @@
 
 This repository contains four distinct projects implemented in C. Each project focuses on a specific domain:
 
-1. **Grocery Billing System**
+1. ####Grocery Billing System####
    - Description: A simple command-line grocery billing system that calculates the total amount for items purchased.
    - File: `grocery_billing_system.c`
 
